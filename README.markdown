@@ -17,7 +17,7 @@ Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 * Download the [megazoomer v0.6 bundle](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.zip).
 * Drop **megazoomer.bundle** into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
 
-Megazoomer will be available next time you start a Cocoa-based application.
+**megazoomer** will be available next time you start a Cocoa-based application.
 
 
 ### To Enter Full Screen mode ###
@@ -36,7 +36,7 @@ __*__ _If the app already uses this shortcut, the option modifier key will be ad
 
 -------
 
-## v0.6 Changes [by AphoticD] - 6th July, 2017 ##
+## megazoomer v0.6 Changes [by AphoticD] - 6th July, 2017 ##
 
 * Fixed compatibility issues with Xcode and other apps which use _Objective-C 2.0 Garbage Collection_.
 * To be more consistent with functionality found in later Mac OS X (macOS) releases, changed menu command title to "Enter Full Screen" and moved it to the bottom of the **View** menu with shortcut **Ctrl-Cmd-F**.
@@ -85,7 +85,7 @@ __*__ On my test machine, I've edited **Keyboard Shortcuts** in **System Prefere
 
 ### Third Party Apps - Tested OK. ###
 * **Bean 3.1.1** - Also has a built-in Full Screen mode which changes the look of the editor view. Both options work well.
-* **Coda 1.7.5** - Works well. Hide the Toolbar **Ctrl-Cmd-H*** and the File Browser **Ctrl-Cmd-B** for distraction-free full screen mode.
+* **Coda 1.7.5** - Works well. Hide the Toolbar **Ctrl-Cmd-H**__*__ and the File Browser **Ctrl-Cmd-B** for distraction-free full screen mode.
 * **Espresso 1.1** - Also set shortcut for "Toggle Toolbar" in System Preferences to **Ctrl-Cmd-H** to go distraction-free.
 * **Transmit 4.2**
 * **WebKit r210430**
@@ -97,5 +97,3 @@ __*__ On my test machine, I've edited **Keyboard Shortcuts** in **System Prefere
 * **TenFourFox FPR1 / 45.10.0**  - Menu insertion issues. Disabled by default (TFF has it's own Full Screen mode).
 * **TextWrangler 3.5.3**
 * **X11/Xquartz 2.6.3**
-
-
