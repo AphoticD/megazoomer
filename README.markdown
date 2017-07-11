@@ -8,13 +8,17 @@
 
 **megazoomer** is a **SIMBL** plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). **megazoomer** is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
 
+See **[megazoomer/panther](https://github.com/AphoticD/megazoomer/tree/panther)** branch for Mac OS X 10.3 Panther compatibility.
+
 Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 
 
 ## Installation ##
 
 * Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
-* Download the [megazoomer v0.6 bundle](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.zip).
+* _(For Mac OS X 10.3 Panther, download [SIMBL-0.8.2-Panther.zip](https://github.com/AphoticD/megazoomer/raw/panther/SIMBL-0.8.2-Panther.zip))_
+* Download the [megazoomer v0.6 bundle](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.zip) for Mac OS X 10.4, 10.5 and 10.6 (Universal Binary).
+* _(For Mac OS X 10.3 Panther, download [megazoomer_v0.6_panther.zip](https://github.com/AphoticD/megazoomer/raw/panther/megazoomer_v0.6_Panther.zip))_
 * Drop **megazoomer.bundle** into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
 
 **megazoomer** will be available next time you start a Cocoa-based application.
