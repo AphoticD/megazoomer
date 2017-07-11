@@ -34,6 +34,17 @@ Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 
 __*__ _If the app already uses this shortcut, the option modifier key will be required (**Ctrl-Opt-Cmd-F**). Again, if this is in use, then the shortcut will be assigned to **Shift-Opt-Cmd-F** and finally **Shift-Ctrl-Opt-Cmd-F** will be assigned as a last resort if none of the prior shortcuts are available._
 
+### 64-bit app compatibility (Intel x86_64 on Mac OS X 10.6) ###
+
+If you wish to force a 64-bit app to use **megazoomer** on **Mac OS X 10.6**. 
+1. Highlight the 64-bit Application in Finder.
+2. Select **File** -> **Get Info**.
+3. Check the **"Open in 32-bit mode"** checkbox in the info window.
+4. Launch the application.
+
+The app will now run in 32-bit mode and will attempt to load megazoomer. For most general purpose apps, 32-bit mode will have very little (if any) impact on the app's performance and function. You can use _Activity Monitor_ to determine if your app is running in 32 or 64-bit mode.
+
+
 -------
 
 ## megazoomer v0.6 changes [by AphoticD] - 6th July, 2017 ##
