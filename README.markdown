@@ -32,7 +32,7 @@ Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 * Hit **Ctrl-Cmd-F** keyboard shortcut.__*__
 
 
-__*__ _If the app already uses this shortcut, the option modifier key will be added for the shortcut (**Ctrl-Opt-Cmd-F**). Again, if this is in use, then the shortcut will be assigned to **Shift-Opt-Cmd-F** and finally **Shift-Ctrl-Opt-Cmd-F** will be assigned as a last resort if none of the prior shortcuts are available._
+__*__ _If the app already uses this shortcut, the option modifier key will be required (**Ctrl-Opt-Cmd-F**). Again, if this is in use, then the shortcut will be assigned to **Shift-Opt-Cmd-F** and finally **Shift-Ctrl-Opt-Cmd-F** will be assigned as a last resort if none of the prior shortcuts are available._
 
 -------
 
