@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -15,8 +15,8 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.4.1</string>
-    <key>SIMBLTargetApplications</key>
+	<string>0.6</string>
+	<key>SIMBLTargetApplications</key>
 	<array>
 		<dict>
 			<key>BundleIdentifier</key>
@@ -27,5 +27,11 @@
 			<string>*</string>
 		</dict>
 	</array>
+	<key>ExcludedBundleIdentifiers</key>
+	<string>com.apple.finder, com.apple.calculator, com.floodgap.tenfourfox, com.apple.InterfaceBuilder3</string>
+	<key>LegacyMegaZoomInWindowMenu</key>
+	<string>NO</string>
+	<key>LogMenuInsertion</key>
+	<string>NO</string>
 </dict>
 </plist>

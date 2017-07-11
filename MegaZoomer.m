@@ -8,87 +8,125 @@
 
 #import "MegaZoomer.h"
 #import "ZoomableWindow.h"
+#import "MegaZoomer+KeyEquiv.h"
+#import "MegaZoomer+Exclusions.h"
+#import "MegaZoomer+MenuInsert.h"
 
-@interface NSMenu(TopSecretMethods)
-
-- (NSString *)_menuName;
-
-@end
 
 @implementation MegaZoomer
 
-+ (NSMenu *)windowMenu
++ (NSMenuItem *) zoomMenuItem
 {
-	NSMenu *mainMenu = [NSApp mainMenu];
-    NSEnumerator *menuEnumerator = [[mainMenu itemArray] objectEnumerator];
-	NSMenu *windowMenu;
-    while ((windowMenu = [[menuEnumerator nextObject] submenu]) != nil) {
-        // Let's hope Apple doesn't change this...
-        if ([[windowMenu _menuName] isEqualToString:@"NSWindowsMenu"]) {
-            return windowMenu;
-        }
-    }
-    return windowMenu;
-}
+	return [self menuItem:@"Zoom" inMenu:@"Window"];
+	
+} //zoomMenuItem
 
-+ (NSMenuItem *)zoomMenuItem
+
+- (BOOL) insertMenu
 {
-	NSMenu *windowMenu = [self windowMenu];
-    
-    int zoomItemIndex = [windowMenu indexOfItemWithTarget:nil andAction:@selector(performZoom:)];
-    NSMenuItem *zoomMenuItem = nil;
-    if (zoomItemIndex >= 0) {
-        [windowMenu itemAtIndex:zoomItemIndex];
-    }
-    if (zoomMenuItem == nil) {
-        zoomMenuItem = [windowMenu itemWithTitle:@"Zoom"];
-    }
-    return zoomMenuItem;
-}
+	if([[self class] useLegacyMenuItem] == YES) { //class method in +Exclusions category
 
-- (void)insertMenu
-{
-	NSMenu *windowMenu = [[self class] windowMenu];
+		//MenuItemType typedef in +MenuInsert category header
+		if([self insertMenuItemOfType: menuItemMegaZoom]) //instance method in +MenuInsert category
+			return YES; //success
+		
+	} else {
+		if([self insertMenuItemOfType: menuItemFullScreen])
+			return YES;
+	}
+	
+	return NO; //insertion failed
 
-	NSMenuItem *item = [[[NSMenuItem alloc] init] autorelease];
-    [item setRepresentedObject:self]; // So I can validate it without having to check the title.
-	[item setTitle:@"Mega Zoom"];
-	[item setAction:@selector(megaZoom:)];
-	[item setTarget:self];
-	[item setKeyEquivalent:@"\n"];
-	[item setKeyEquivalentModifierMask:NSCommandKeyMask];
-	[windowMenu insertItem:item atIndex:[windowMenu indexOfItemWithTarget:nil andAction:@selector(performZoom:)]+1];
-}
+} //insertMenuItem:
 
-+ (BOOL)megazoomerWorksHere
-{
+
++ (BOOL) megazoomerWorksHere
+{	
     static NSSet *doesntWork = nil;
-    if (doesntWork == nil) {
-        doesntWork = [[NSSet alloc] init]; // add bundles that don't work
-    }
-    return ![doesntWork containsObject:[[NSBundle mainBundle] bundleIdentifier]];
-}
 
-+ (void)load
+    if (doesntWork == nil)
+        doesntWork = [self loadExcludedBundleIdentiferSet]; //class method in +Exclusions category
+
+    return ![doesntWork containsObject:[[NSBundle mainBundle] bundleIdentifier]];
+} //megazoomerWorksHere
+
+
++ (void) load
 {
 	static MegaZoomer *zoomer = nil;
+	
 	if (zoomer == nil) {
 		zoomer = [[self alloc] init];
-        if ([self megazoomerWorksHere]) {
-            [zoomer insertMenu];
-            [NSWindow swizzleZoomerMethods];
-        }
+		
+        if ([self megazoomerWorksHere])
+			if ([zoomer insertMenu])
+				[NSWindow swizzleZoomerMethods];
 	}
-}
+} //load
 
-- (BOOL)validateMenuItem:(id <NSMenuItem>)item
+
+- (BOOL) validateMenuItem:(id <NSMenuItem>)item
 {
     return [[NSApp keyWindow] isMegaZoomable];
-}
+} //validateMenuItem
 
-- (void)megaZoom:sender
+
+- (void) megaZoom:(id) sender
 {
+	[self toggleMenuItemTitle];
     [[NSApp keyWindow] toggleMegaZoom];
-}
+} //megaZoom:
+
+
+#pragma mark + User Option Class Methods
+
++ (BOOL) useLegacyMenuItem
+{
+	NSDictionary *infoDictionary = [self loadMegaZoomerInfoDictionary];
+	
+	if([infoDictionary valueForKey:@"LegacyMegaZoomInWindowMenu"]) {
+		NSString *stringValue = [infoDictionary valueForKey:@"LegacyMegaZoomInWindowMenu"];
+		
+		if([[stringValue uppercaseString] isEqualToString:@"YES"])
+			return YES;
+	}
+	
+	return NO;
+	
+} //useLegacyMenuItem
+
+
++ (BOOL) useMenuInsertionLogging
+{
+	NSDictionary *infoDictionary = [self loadMegaZoomerInfoDictionary];
+	
+	if([infoDictionary valueForKey:@"LogMenuInsertion"]) {
+		NSString *stringValue = [infoDictionary valueForKey:@"LogMenuInsertion"];
+		
+		if([[stringValue uppercaseString] isEqualToString:@"YES"])
+			return YES;
+	}
+	
+	return NO;
+	
+} //useMenuInsertionLogging
+
+
+#pragma mark - Instance Variable Accessor Methods
+
+
+- (NSMenuItem *) zoomerMenuItem
+{
+	return zoomerMenuItem;
+} //zoomerMenuItem
+
+
+- (void) setZoomerMenuItem:(NSMenuItem *) aMenuItem
+{
+	[zoomerMenuItem release];
+	[aMenuItem retain];
+	zoomerMenuItem = aMenuItem;
+} //setZoomerMenuItem:
+
 
 @end

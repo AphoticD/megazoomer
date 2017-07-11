@@ -10,8 +10,18 @@
 
 
 @interface MegaZoomer : NSObject {
+
+	NSMenuItem *zoomerMenuItem;
 }
 
-+ (NSMenuItem *)zoomMenuItem;
++ (NSMenuItem *) zoomMenuItem;
+
+//user option class methods
++ (BOOL) useLegacyMenuItem;
++ (BOOL) useMenuInsertionLogging;
+
+//ivar accessor methods
+- (NSMenuItem *) zoomerMenuItem;
+- (void) setZoomerMenuItem:(NSMenuItem *) aMenuItem;
 
 @end
