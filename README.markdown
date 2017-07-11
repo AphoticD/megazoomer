@@ -4,7 +4,7 @@
 
 ## Introduction ##
 
-**megazoomer** (written by [Ian Henderson](http://ianhenderson.org/megazoomer.html)) enables full-screen support in most Cocoa applications on legacy Mac OS X (prior to Mac OS X 10.7 Lion).
+**megazoomer** enables full-screen support in most Cocoa applications on legacy Mac OS X (prior to Mac OS X 10.7 Lion). Originally written by [Ian Henderson](http://ianhenderson.org/megazoomer.html).
 
 **megazoomer** is a **SIMBL** plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). **megazoomer** is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
 
@@ -36,7 +36,7 @@ __*__ _If the app already uses this shortcut, the option modifier key will be ad
 
 -------
 
-## megazoomer v0.6 Changes [by AphoticD] - 6th July, 2017 ##
+## megazoomer v0.6 changes [by AphoticD] - 6th July, 2017 ##
 
 * Fixed compatibility issues with Xcode and other apps which use _Objective-C 2.0 Garbage Collection_.
 * To be more consistent with functionality found in later Mac OS X (macOS) releases, changed menu command title to "Enter Full Screen" and moved it to the bottom of the **View** menu with shortcut **Ctrl-Cmd-F**.
@@ -64,13 +64,13 @@ __*__ _If the app already uses this shortcut, the option modifier key will be ad
 ## Documented Testing on Mac OS X 10.5.8 (PowerPC) ##
 
 ### Applications - Tested OK. ###
-* **Address Book, AppleScript/Script Editor, Automator, Chess, Dictionary, Font Book, iCal, iChat, Image Capture, Mail, Preview, QuickTime Player, Safari, Stickies, TextEdit.**
+* Address Book, AppleScript/Script Editor, Automator, Chess, Dictionary, Font Book, iCal, iChat, Image Capture, Mail, Preview, QuickTime Player, Safari, Stickies, TextEdit.
 
 ### Utilities - Tested OK. ###
-* **Activity Monitor, Audio MIDI Setup, Console, Directory, Disk Utility, Keychain Access, Network Utility, System Profiler, Terminal.**
+* Activity Monitor, Audio MIDI Setup, Console, Directory, Disk Utility, Keychain Access, Network Utility, System Profiler, Terminal.
 
 ### More Apple Apps - Tested OK. ### 
-* **Aperture 2.1.4, Garageband 5.1, iMovie HD 6.0.4, iMovie 8.0.6, Keynote 5.0, LiveType 2.1.3, Motion 3.0.2, Numbers 2.0, Pages 4.0, Soundtrack Pro 2.0.2.**
+* Aperture 2.1.4, Garageband 5.1, iMovie HD 6.0.4, iMovie 8.0.6, Keynote 5.0, LiveType 2.1.3, Motion 3.0.2, Numbers 2.0, Pages 4.0, Soundtrack Pro 2.0.2.
 
 ### Developer (Xcode 3.1.4) - Tested OK. ###
 * **Xcode** - Works well. The Keyboard shortcut becomes **Shift-Option-Cmd-F** due to Code Folding and View/Details commands taking precedence. To go into distraction-free full screen mode; Hide Toolbar (**Ctrl-Cmd-H**)__*__, Zoom Editor In (**Shift-Cmd-E**), double-click the dividing line for **Groups & Files** to hide the sidebar, then Enter Full Screen (**Shift-Option-Cmd-F**). You can then use Open Quickly **Shift-Cmd-D** or the Navigation Bar and the **View** -> **Go Forward**, **Go Back** and **Switch to Header/Source File** shortcuts to move around between files.
