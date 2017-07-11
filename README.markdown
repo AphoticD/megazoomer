@@ -52,10 +52,10 @@ __*__ _If the app already uses this shortcut, the option modifier key will be ad
 
 ## User Options ##
 
-* Added **User Option** for a comma-separated list of **"ExcludedBundleIdentifiers"** in **[megazoomer.bundle/Contents/Info.plist]**. Edit the property string using **Property List Editor** or **TextEdit** as needed. Defaults to exclude:
- **'com.apple.finder, com.apple.calaculator, com.floodgap.tenfourfox, com.apple.InterfaceBuilder3'**.
-* Added **User Option** for **"LegacyMegaZoomInWindowMenu"** in the bundle's Info.plist to restore "Mega Zoom" in the **Window** menu (below "Zoom") with **Cmd-Enter** shortcut (instead of "Enter Full Screen" under the **View** menu).
-* Added **User Option** for *"LogMenuInsertion"** in the bundle's Info.plist to enable console logging for successful menu insertions.
+* Added **User Option** for a comma-separated list of **"ExcludedBundleIdentifiers"** in **megazoomer.bundle/Contents/Info.plist**. Edit the property string using **Property List Editor** or **TextEdit** as needed. Defaults to exclude:
+ **'com.apple.finder, com.apple.calculator, com.floodgap.tenfourfox, com.apple.InterfaceBuilder3'**.
+* Added **User Option** for **"LegacyMegaZoomInWindowMenu"** in the bundle's _Info.plist_ to restore "Mega Zoom" in the **Window** menu (below "Zoom") with **Cmd-Enter** shortcut (instead of "Enter Full Screen" under the **View** menu).
+* Added **User Option** for **"LogMenuInsertion"** in the bundle's _Info.plist_ to enable console logging for successful menu insertions.
 * _For clarification: **User Options** have been set in a non-standard fashion inside the bundle's Info.plist instead of using NSUserDefaults because when SIMBL loads megazoomer, the reference to the mainBundle is that of the app in which it has been loaded into and not the megazoomer bundle itself. In which case, changing a 'defaults' setting applicable to megazoomer would apply only to the app in which it is currently loaded and not for all apps as desired._
 * The loading of these settings first checks **~/Library/Application Support/SIMBL/Plugins/megazoomer.bundle/Contents/Info.plist** and if not found local to the current user, it searches in the system-wide location **/Library/Application Surpport/SIMBL/Plugins/...**
 
