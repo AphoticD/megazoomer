@@ -1,3 +1,7 @@
+# megazoomer #
+
+![megazoomer screenshot](https://github.com/AphoticD/megazoomer/blob/master/megazoomer-screenshot.jpg)
+
 ## Introduction ##
 
 **megazoomer** (written by [Ian Henderson](http://ianhenderson.org/megazoomer.html)) enables full-screen support in most Cocoa applications on Mac OS X prior to Mac OS X 10.7 Lion.
@@ -10,7 +14,7 @@ Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 ## Installation ##
 
 * Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
-* Download the [megazoomer v0.6 bundle]().
+* Download the [megazoomer v0.6 bundle](https://github.com/AphoticD/megazoomer/blob/master/megazoomer_v0.6.zip).
 * Drop **megazoomer.bundle** into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
 
 Megazoomer will be available next time you start a Cocoa-based application.
@@ -41,8 +45,8 @@ __*__ _If the app already uses this shortcut, the option modifier key will be ad
 * Added routine to toggle menu command title between "Enter Full Screen" and "Exit Full Screen".
 * Performed refactoring of some existing methods to use Cocoa framework calls and moved new routines out to class Categories.
 * Updated version string.
-* Tested (PPC) Mac OS X 10.5.8 and Mac OS X 10.4.11 running on PowerPC G4 and G5 hardware.
-* Tested (Intel) Mac OS X 10.5.8 Server and Mac OS X 10.6.8 Server running under VMWare Fusion.
+* Tested PPC Mac OS X 10.5.8 and Mac OS X 10.4.11 running on PowerPC G4 and G5 hardware.
+* Tested Intel/i386 Mac OS X 10.5.8 Server and Mac OS X 10.6.8 Server running under VMWare Fusion 8.5.8 on Mac OS X 10.11.6 host (Intel Xeon).
 * Found 64-bit Intel/x86_64 apps running on Snow Leopard are not compatible with calls made to the 32-bit objc framework in the 10.4 SDK used by megazoomer "under the hood".
 
 
