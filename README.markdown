@@ -2,35 +2,33 @@
 
 **megazoomer** (written by [Ian Henderson](http://ianhenderson.org/megazoomer.html)) enables full-screen support in most Cocoa applications on Mac OS X prior to Mac OS X 10.7 Lion.
 
-megazoomer is a SIMBL plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). Megazoomer is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
+**megazoomer** is a SIMBL plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). Megazoomer is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
 
 Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 
 
 ## Installation ##
 
-* Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) (v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard).
+* Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
 * Download the [megazoomer v0.6 bundle]().
-* Drop megazoomer.bundle into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
+* Drop **megazoomer.bundle** into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
 
 Megazoomer will be available next time you start a Cocoa-based application.
 
 
-## To Enter Full Screen mode ##
+### To Enter Full Screen mode ###
 
-* Choose **"Enter Full Screen"** from the **View** menu 
--- OR --
+* Choose **"Enter Full Screen"** from the **View** menu _-- OR --_
 * Hit **Ctrl-Cmd-F** keyboard shortcut.*
 
 
-## To Exit Full Screen mode ##
+### To Exit Full Screen mode ###
 
-* Choose **"Exit Full Screen"** from the **View** menu 
--- OR --
+* Choose **"Exit Full Screen"** from the **View** menu _-- OR --_
 * Hit **Ctrl-Cmd-F** keyboard shortcut.*
 
 
- *If the app already uses this shortcut, the option modifier key will be added for the shortcut (**Ctrl-Opt-Cmd-F**). Again, if this is in use, then the shortcut will be assigned to **Shift-Opt-Cmd-F** and finally **Shift-Ctrl-Opt-Cmd-F** will be assigned as a last resort if none of the prior shortcuts are available.
+ * _If the app already uses this shortcut, the option modifier key will be added for the shortcut (**Ctrl-Opt-Cmd-F**). Again, if this is in use, then the shortcut will be assigned to **Shift-Opt-Cmd-F** and finally **Shift-Ctrl-Opt-Cmd-F** will be assigned as a last resort if none of the prior shortcuts are available._
 
 -------
 
