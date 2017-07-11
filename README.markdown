@@ -4,7 +4,7 @@
 
 ## Introduction ##
 
-**megazoomer** (written by [Ian Henderson](http://ianhenderson.org/megazoomer.html)) enables full-screen support in most Cocoa applications on Mac OS X prior to Mac OS X 10.7 Lion.
+**megazoomer** (written by [Ian Henderson](http://ianhenderson.org/megazoomer.html)) enables full-screen support in most Cocoa applications on legacy Mac OS X (prior to Mac OS X 10.7 Lion).
 
 **megazoomer** is a **SIMBL** plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). **megazoomer** is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
 
