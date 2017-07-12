@@ -15,7 +15,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.6</string>
+	<string>0.6.1</string>
 	<key>SIMBLTargetApplications</key>
 	<array>
 		<dict>
@@ -29,6 +29,8 @@
 	</array>
 	<key>ExcludedBundleIdentifiers</key>
 	<string>com.apple.finder, com.apple.calculator, com.floodgap.tenfourfox, com.apple.InterfaceBuilder3</string>
+	<key>WindowMenuBundleIdentifiers</key>
+	<string></string>
 	<key>LegacyMegaZoomInWindowMenu</key>
 	<string>NO</string>
 	<key>LogMenuInsertion</key>

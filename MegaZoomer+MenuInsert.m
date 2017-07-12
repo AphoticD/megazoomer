@@ -9,7 +9,7 @@
 #import "MegaZoomer.h"
 #import "MegaZoomer+MenuInsert.h"
 #import "MegaZoomer+KeyEquiv.h"
-#import "MegaZoomer+Exclusions.h"
+#import "MegaZoomer+UserOptions.h"
 
 @implementation MegaZoomer(MenuInsert)
 
@@ -35,12 +35,12 @@
 	
 	if(menu != nil) {		
 		if([menuItem isEqualToString:@"@firstItem"])
-			return [menu itemAtIndex:0];
+			return (NSMenuItem *)[menu itemAtIndex:0];
 			
 		if([menuItem isEqualToString:@"@lastItem"])
-			return [menu itemAtIndex:[[menu itemArray] count] - 1];
+			return (NSMenuItem *)[menu itemAtIndex:[[menu itemArray] count] - 1];
 		
-		return [menu itemWithTitle:menuItem];
+		return (NSMenuItem *)[menu itemWithTitle:menuItem];
 	}
 	
 	return nil;
@@ -84,7 +84,7 @@
 					 withAction: (SEL) menuAction
 				  keyEquivelant: (NSString *) keyEquivelant
 				   usingKeyMask: (unsigned int) keyMask
-			 addSeparatorBefore: (BOOL) isSeparatorAddedBeforeItem
+			       addSeparator: (int) signedSeparatorPosition
 {
 	NSMenu *menu = [[self class] menuWithTitle:menuTitle];
 	
@@ -104,7 +104,7 @@
 			if(precedingMenuItem != nil) { //the item exists, grab it's index
 				int indexOfPrecedingMenuItem = [menu indexOfItem:precedingMenuItem];
 				
-				if(isSeparatorAddedBeforeItem == YES) //add a separator line after the preceding item
+				if(signedSeparatorPosition == -1) //add a separator line before the new menu item
 					[menu insertItem: [NSMenuItem separatorItem] atIndex: ++indexOfPrecedingMenuItem ];
 
 				//set the insertion index to be after the preceding item
@@ -115,6 +115,9 @@
 		//if precedingMenuItem was sent through as nil, then the insertionIndex will be zero (top of the menu)
 		[menu insertItem:item atIndex:insertionIndex];
 		
+		if(signedSeparatorPosition == 1) //add a separator line after the new menu item
+			[menu insertItem: [NSMenuItem separatorItem] atIndex: ++insertionIndex ];
+
 		return item; //success
 	}
 	
@@ -128,7 +131,7 @@
 	NSMenuItem *menuItem;
 	NSString *menuItemTitle, *menuTitle, *precedingItem, *keyEquiv;
 	unsigned int keyMask;
-	BOOL addSeparator;
+	int signedSeparatorPosition;
 	
 	switch (menuItemType) {
 		case menuItemMegaZoom:
@@ -138,7 +141,7 @@
 			precedingItem = @"Zoom";
 			keyEquiv = @"\n";
 			keyMask = NSCommandKeyMask;
-			addSeparator = NO;			
+			signedSeparatorPosition = 0; //none
 			break;
 			
 		case menuItemFullScreen:
@@ -148,21 +151,36 @@
 			precedingItem = @"@lastItem";
 			keyEquiv = @"f";
 			keyMask = (NSCommandKeyMask|NSControlKeyMask);
-			addSeparator = YES;
+			signedSeparatorPosition = -1; //before new item
 			break;
 	}
 	
-	//confirm the "View" (or Window) menu exists, if not, create it, placing it before Window or Help
+	//check the WindowMenuBundleIdentifiers (in Info.plist) to determine if the new menuItem will be
+	//explicitly inserted into the Window Menu, and if so, place it at the top.
+	//(this check is ignored in "Legacy" mode).
+	if(menuItemType != menuItemMegaZoom && [[[self class] loadWindowMenuBundleIdentiferSet] 
+											containsObject:[[NSBundle mainBundle] bundleIdentifier]]) {
+		menuTitle = @"Window";
+		precedingItem = nil;
+	}
+	
+	//confirm the target menu exists, if not, create it, placing it before Window or Help
 	if([[self class] menuWithTitle:menuTitle] == nil) { 
 		[self createMenu:menuTitle
 			  beforeMenu:@"Window" 
 		 orBeforeAltMenu:@"Help"];
 		precedingItem = nil; //put the new menuItem at the top of the new menu (addSeparator flag will be ignored)
+
+	} else { //the menu does already exist
+	
+		//add a separator line after the new item if not empty and nothing precedes it.
+		if([[[[self class] menuWithTitle:menuTitle] itemArray] count] > 0 && precedingItem == nil)
+			signedSeparatorPosition = 1; //after the new item
 	}
 	
-	//check if the menu item title already exists and append "(Mega Zoom)" to title if so
+	//check if the menu item title already exists and append "(Zoom)" to title if so
 	if([[self class] menuItem:menuItemTitle inMenu:menuTitle])
-		menuItemTitle = [NSString stringWithFormat:@"%@ (Mega Zoom)", menuItemTitle];
+		menuItemTitle = [NSString stringWithFormat:@"%@ (Zoom)", menuItemTitle];
 
 	//scan all menus via the +KeyEquiv category class method to determine if the key equivalent is in use
 	if([[self class] mainMenuHasKeyEquivalent: keyEquiv withModifierFlags: keyMask]) {
@@ -186,7 +204,7 @@
 						 withAction: @selector(megaZoom:)
 					  keyEquivelant: keyEquiv
 					   usingKeyMask: keyMask
-				 addSeparatorBefore: addSeparator];	
+				       addSeparator: signedSeparatorPosition];	
 	
 	if(menuItem != nil) { //log the insertion
 

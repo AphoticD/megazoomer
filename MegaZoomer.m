@@ -9,7 +9,7 @@
 #import "MegaZoomer.h"
 #import "ZoomableWindow.h"
 #import "MegaZoomer+KeyEquiv.h"
-#import "MegaZoomer+Exclusions.h"
+#import "MegaZoomer+UserOptions.h"
 #import "MegaZoomer+MenuInsert.h"
 
 
@@ -24,7 +24,7 @@
 
 - (BOOL) insertMenu
 {
-	if([[self class] useLegacyMenuItem] == YES) { //class method in +Exclusions category
+	if([[self class] useLegacyMenuItem] == YES) { //class method in +UserOptions category
 
 		//MenuItemType typedef in +MenuInsert category header
 		if([self insertMenuItemOfType: menuItemMegaZoom]) //instance method in +MenuInsert category
@@ -42,12 +42,9 @@
 
 + (BOOL) megazoomerWorksHere
 {	
-    static NSSet *doesntWork = nil;
-
-    if (doesntWork == nil)
-        doesntWork = [self loadExcludedBundleIdentiferSet]; //class method in +Exclusions category
-
-    return ![doesntWork containsObject:[[NSBundle mainBundle] bundleIdentifier]];
+	//check against the ExcludedBundleIdentifiers User Option to see if the current app bundle is listed
+	//returns false if found in set as it has been 'blacklisted' by the user.
+    return ![[self loadExcludedBundleIdentiferSet] containsObject:[[NSBundle mainBundle] bundleIdentifier]];
 } //megazoomerWorksHere
 
 
@@ -76,40 +73,6 @@
 	[self toggleMenuItemTitle];
     [[NSApp keyWindow] toggleMegaZoom];
 } //megaZoom:
-
-
-#pragma mark + User Option Class Methods
-
-+ (BOOL) useLegacyMenuItem
-{
-	NSDictionary *infoDictionary = [self loadMegaZoomerInfoDictionary];
-	
-	if([infoDictionary valueForKey:@"LegacyMegaZoomInWindowMenu"]) {
-		NSString *stringValue = [infoDictionary valueForKey:@"LegacyMegaZoomInWindowMenu"];
-		
-		if([[stringValue uppercaseString] isEqualToString:@"YES"])
-			return YES;
-	}
-	
-	return NO;
-	
-} //useLegacyMenuItem
-
-
-+ (BOOL) useMenuInsertionLogging
-{
-	NSDictionary *infoDictionary = [self loadMegaZoomerInfoDictionary];
-	
-	if([infoDictionary valueForKey:@"LogMenuInsertion"]) {
-		NSString *stringValue = [infoDictionary valueForKey:@"LogMenuInsertion"];
-		
-		if([[stringValue uppercaseString] isEqualToString:@"YES"])
-			return YES;
-	}
-	
-	return NO;
-	
-} //useMenuInsertionLogging
 
 
 #pragma mark - Instance Variable Accessor Methods

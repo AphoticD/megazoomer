@@ -6,6 +6,12 @@
 //  Copyright 2017 Daniel Brunet. All rights reserved.
 //
 
+#if MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_3
+#define kDeviceIndependentModifierFlagsMask &NSDeviceIndependentModifierFlagsMask
+#else
+#define kDeviceIndependentModifierFlagsMask
+#endif
+
 #import "MegaZoomer+KeyEquiv.h"
 
 @implementation MegaZoomer(KeyEquiv)
@@ -14,11 +20,11 @@
 							  withEvent: (NSEvent *) theEvent
 {
 	NSString *menuItemKeyEquivalent = [menuItem keyEquivalent];
-	unsigned int menuItemModifierFlags = [menuItem keyEquivalentModifierMask] &NSDeviceIndependentModifierFlagsMask;
+	unsigned int menuItemModifierFlags = [menuItem keyEquivalentModifierMask] kDeviceIndependentModifierFlagsMask;
 	
 	NSString *eventKeyEquivalent = [theEvent charactersIgnoringModifiers];
-	unsigned int eventModifierFlags = [theEvent modifierFlags] &NSDeviceIndependentModifierFlagsMask;
-	
+	unsigned int eventModifierFlags = [theEvent modifierFlags] kDeviceIndependentModifierFlagsMask;
+
 	if([eventKeyEquivalent isEqualTo:menuItemKeyEquivalent] &&
 	   eventModifierFlags == menuItemModifierFlags)
 		return YES; //we found a matching menu item using this keyboard shortcut

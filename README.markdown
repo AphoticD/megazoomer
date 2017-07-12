@@ -6,20 +6,28 @@
 
 **megazoomer** enables full-screen support in most Cocoa applications on legacy Mac OS X (prior to Mac OS X 10.7 Lion). Originally written by [Ian Henderson](http://ianhenderson.org/megazoomer.html).
 
-**megazoomer** is a **SIMBL** plugin bundle, which is supported on Mac OS X 10.4 Tiger, 10.5 Leopard (PowerPC and Intel) and 10.6 Snow Leopard (Intel 32-bit only). **megazoomer** is not 64-bit compatible and will not work on Mac OS X 10.7 (Lion) or later.
+**megazoomer** is a **SIMBL** plugin for Mac OS X, which is supported on:
+* 10.3 Panther _(PowerPC)_
+* 10.4 Tiger _(PowerPC and Intel)_
+* 10.5 Leopard _(PowerPC and Intel)_
+* 10.6 Snow Leopard _(Intel 32-bit only)_
 
-See **[megazoomer/panther](https://github.com/AphoticD/megazoomer/tree/panther)** branch for Mac OS X 10.3 Panther compatibility.
+**megazoomer** is not 64-bit compatible and will NOT work on Mac OS X 10.7 (Lion) or later.
 
 Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 
 
 ## Installation ##
 
-* Install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
-* _(For Mac OS X 10.3 Panther, download [SIMBL-0.8.2-Panther.zip](https://github.com/AphoticD/megazoomer/raw/panther/SIMBL-0.8.2-Panther.zip))_
-* Download the [megazoomer v0.6 bundle](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.zip) for Mac OS X 10.4, 10.5 and 10.6 (Universal Binary).
-* _(For Mac OS X 10.3 Panther, download [megazoomer_v0.6_panther.zip](https://github.com/AphoticD/megazoomer/raw/panther/megazoomer_v0.6_Panther.zip))_
-* Drop **megazoomer.bundle** into either /Library/Application Support/SIMBL/Plugins or ~/Library/Application Support/SIMBL/Plugins (create and name these folders as required).
+1. Download and install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
+- _(For Mac OS X 10.3 Panther, download and install [SIMBL-0.8.2-Panther.zip](https://github.com/AphoticD/megazoomer/raw/SIMBL-0.8.2-Panther.zip))_
+
+2. Download [megazoomer v0.6.1.zip](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.1.zip).
+- _(This includes builds for Panther PPC and Tiger, Leopard and Snow Leopard (Universal Binary))_
+
+3. Copy the **megazoomer.bundle** for your system into either 
+- */Library/Application Support/SIMBL/Plugins/* or 
+- *~/Library/Application Support/SIMBL/Plugins/* _(create and name these folders as required)._
 
 **megazoomer** will be available next time you start a Cocoa-based application.
 
@@ -51,7 +59,17 @@ The app will now run in 32-bit mode and will attempt to load megazoomer. For mos
 
 -------
 
-## megazoomer v0.6 changes [by AphoticD] - 6th July, 2017 ##
+## Version History ##
+
+### megazoomer v0.6.1 Changes [by AphoticD] -12th July, 2017 ###
+
+* Merged changes made for Mac OS X 10.3 Panther compatibility (megazoomer/panther) into main branch and rebuilt binaries.
+* Added **User Option** string for a comma-separated list of **"WindowMenuBundleIdentifiers"** in **megazoomer.bundle/Contents/Resources/Info.plist**. This list is used to explicitly specify apps which prefer to have the "Enter Full Screen" command injected into the Window menu, instead of View. This allows for Safari 1.3.2 on Panther to work with Full Screen mode _(**com.apple.Safari** has been added to this list by default in the Panther build)_. Other app bundle identifiers can be added to this list if required.
+* Added routines to insert correct menu separators (before or after depending on location of menu item).
+* Refactored User Option methods into new Category.
+
+
+### megazoomer v0.6 changes [by AphoticD] - 6th July, 2017 ###
 
 * Fixed compatibility issues with Xcode and other apps which use _Objective-C 2.0 Garbage Collection_.
 * To be more consistent with functionality found in later Mac OS X (macOS) releases, changed menu command title to "Enter Full Screen" and moved it to the bottom of the **View** menu with shortcut **Ctrl-Cmd-F**.
@@ -64,8 +82,7 @@ The app will now run in 32-bit mode and will attempt to load megazoomer. For mos
 * Tested Intel/i386 Mac OS X 10.5.8 Server and Mac OS X 10.6.8 Server running under VMWare Fusion 8.5.8 on Mac OS X 10.11.6 host (Intel Xeon).
 * Found 64-bit Intel/x86_64 apps running on Snow Leopard are not compatible with calls made to the 32-bit objc framework in the 10.4 SDK used by megazoomer "under the hood".
 
-
-## User Options ##
+#### Added User Options ####
 
 * Added **User Option** for a comma-separated list of **"ExcludedBundleIdentifiers"** in **megazoomer.bundle/Contents/Info.plist**. Edit the property string using **Property List Editor** or **TextEdit** as needed. Defaults to exclude:
  **'com.apple.finder, com.apple.calculator, com.floodgap.tenfourfox, com.apple.InterfaceBuilder3'**.
@@ -73,6 +90,15 @@ The app will now run in 32-bit mode and will attempt to load megazoomer. For mos
 * Added **User Option** for **"LogMenuInsertion"** in the bundle's _Info.plist_ to enable console logging for successful menu insertions.
 * _For clarification: **User Options** have been set in a non-standard fashion inside the bundle's Info.plist instead of using NSUserDefaults because when SIMBL loads megazoomer, the reference to the mainBundle is that of the app in which it has been loaded into and not the megazoomer bundle itself. In which case, changing a 'defaults' setting applicable to megazoomer would apply only to the app in which it is currently loaded and not for all apps as desired._
 * The loading of these settings first checks **~/Library/Application Support/SIMBL/Plugins/megazoomer.bundle/Contents/Info.plist** and if not found local to the current user, it searches in the system-wide location **/Library/Application Surpport/SIMBL/Plugins/...**
+
+
+### megazoomer 0.5.1 ###
+* Version by original author (Ian Henderson), previously released into the wild. Source code for this version does not appear to be available.
+
+
+### megazoomer 0.4.1 ###
+* Starting point for this github fork.
+
 
 -------
 
