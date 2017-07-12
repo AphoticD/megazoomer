@@ -20,14 +20,14 @@ Universal Binary support added by [Mathias Meyer](http://paperplanes.de).
 ## Installation ##
 
 1. Download and install [SIMBL](http://culater.net/software/SIMBL/SIMBL.php) _(v0.8.2 for Tiger, v0.9.9 for Leopard and Snow Leopard)_
-- _(For Mac OS X 10.3 Panther, download and install [SIMBL-0.8.2-Panther.zip](https://github.com/AphoticD/megazoomer/raw/SIMBL-0.8.2-Panther.zip))_
+- _(For Mac OS X 10.3 Panther, download and install [SIMBL-0.8.2-Panther.zip](https://github.com/AphoticD/megazoomer/raw/master/SIMBL-0.8.2-Panther.zip))_
 
 2. Download [megazoomer v0.6.1.zip](https://github.com/AphoticD/megazoomer/raw/master/megazoomer_v0.6.1.zip).
 - _(This includes builds for Panther PPC and Tiger, Leopard and Snow Leopard (Universal Binary))_
 
 3. Copy the **megazoomer.bundle** for your system into either 
-- */Library/Application Support/SIMBL/Plugins/* or 
-- *~/Library/Application Support/SIMBL/Plugins/* _(create and name these folders as required)._
+- **/Library/Application Support/SIMBL/Plugins/** or 
+- **~/Library/Application Support/SIMBL/Plugins/** _(create and name these folders as required)._
 
 **megazoomer** will be available next time you start a Cocoa-based application.
 
