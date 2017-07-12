@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		814980141F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.m in Sources */ = {isa = PBXBuildFile; fileRef = 814980131F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.m */; };
-		814980731F0BB42200BCF960 /* MegaZoomer+Exclusions.m in Sources */ = {isa = PBXBuildFile; fileRef = 814980721F0BB42200BCF960 /* MegaZoomer+Exclusions.m */; };
 		81C9254B1F0BDD5F002C87B6 /* MegaZoomer+MenuInsert.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C9254A1F0BDD5E002C87B6 /* MegaZoomer+MenuInsert.m */; };
+		81F0369C1F15F4B500F016F2 /* MegaZoomer+UserOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F0369B1F15F4B500F016F2 /* MegaZoomer+UserOptions.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BFED0C9A08E0DBA80038121C /* MegaZoomer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFED0C9908E0DBA80038121C /* MegaZoomer.m */; };
@@ -25,11 +25,11 @@
 		32DBCF630370AF2F00C91783 /* megazoomer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = megazoomer_Prefix.pch; sourceTree = "<group>"; };
 		814980121F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MegaZoomer+KeyEquiv.h"; sourceTree = "<group>"; };
 		814980131F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MegaZoomer+KeyEquiv.m"; sourceTree = "<group>"; };
-		814980711F0BB42200BCF960 /* MegaZoomer+Exclusions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MegaZoomer+Exclusions.h"; sourceTree = "<group>"; };
-		814980721F0BB42200BCF960 /* MegaZoomer+Exclusions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MegaZoomer+Exclusions.m"; sourceTree = "<group>"; };
 		81C925251F0BD50F002C87B6 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; wrapsLines = 1; };
 		81C925491F0BDD5E002C87B6 /* MegaZoomer+MenuInsert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MegaZoomer+MenuInsert.h"; sourceTree = "<group>"; };
 		81C9254A1F0BDD5E002C87B6 /* MegaZoomer+MenuInsert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MegaZoomer+MenuInsert.m"; sourceTree = "<group>"; };
+		81F0369A1F15F4B500F016F2 /* MegaZoomer+UserOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MegaZoomer+UserOptions.h"; sourceTree = "<group>"; };
+		81F0369B1F15F4B500F016F2 /* MegaZoomer+UserOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MegaZoomer+UserOptions.m"; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* megazoomer.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = megazoomer.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFED0C9808E0DBA80038121C /* MegaZoomer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MegaZoomer.h; sourceTree = "<group>"; };
@@ -92,10 +92,10 @@
 				BFED0C9908E0DBA80038121C /* MegaZoomer.m */,
 				814980121F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.h */,
 				814980131F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.m */,
-				814980711F0BB42200BCF960 /* MegaZoomer+Exclusions.h */,
-				814980721F0BB42200BCF960 /* MegaZoomer+Exclusions.m */,
 				81C925491F0BDD5E002C87B6 /* MegaZoomer+MenuInsert.h */,
 				81C9254A1F0BDD5E002C87B6 /* MegaZoomer+MenuInsert.m */,
+				81F0369A1F15F4B500F016F2 /* MegaZoomer+UserOptions.h */,
+				81F0369B1F15F4B500F016F2 /* MegaZoomer+UserOptions.m */,
 				BFED0CF008E0E9C70038121C /* ZoomableWindow.h */,
 				BFED0CF108E0E9C70038121C /* ZoomableWindow.m */,
 			);
@@ -193,8 +193,8 @@
 				BFED0C9A08E0DBA80038121C /* MegaZoomer.m in Sources */,
 				BFED0CF208E0E9C70038121C /* ZoomableWindow.m in Sources */,
 				814980141F0BAECD00BCF960 /* MegaZoomer+KeyEquiv.m in Sources */,
-				814980731F0BB42200BCF960 /* MegaZoomer+Exclusions.m in Sources */,
 				81C9254B1F0BDD5F002C87B6 /* MegaZoomer+MenuInsert.m in Sources */,
+				81F0369C1F15F4B500F016F2 /* MegaZoomer+UserOptions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,10 +215,8 @@
 		BFED0C7A08E0DB1E0038121C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -241,10 +239,8 @@
 		BFED0C7B08E0DB1E0038121C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					i386,
-					ppc,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -265,10 +261,8 @@
 		BFED0C7C08E0DB1E0038121C /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -287,6 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_ENABLE_OBJC_GC = YES;
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -300,6 +295,7 @@
 					i386,
 				);
 				GCC_ENABLE_OBJC_GC = YES;
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -308,6 +304,7 @@
 		BFED0C8008E0DB1E0038121C /* Default */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
